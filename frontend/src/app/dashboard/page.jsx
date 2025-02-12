@@ -1,9 +1,14 @@
+"use client";
 import { redirect } from "next/navigation";
+import { useEffect } from "react";
 
 const DashboardPage = () => {
-  if (!sessionStorage.getItem("token") && !localStorage.getItem("token"))
-    return redirect("/");
-  return redirect("/dashboard/media");
+  useEffect(() => {
+    if (!sessionStorage.getItem("token") && !localStorage.getItem("token"))
+      redirect("/");
+    else redirect("/dashboard/media");
+  }, []);
+  return null;
 };
 
 export default DashboardPage;
