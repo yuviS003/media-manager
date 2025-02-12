@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "4ce17f1d-43c7-48a9-bac2-0f8304eb197b",
+		"name": "Media Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37291834"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Yuvraj Singh\",\r\n    \"email\": \"yuvraj@gmail.com\",\r\n    \"password\": \"yuvraj\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/signup",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"yuvraj@gmail.com\",\r\n    \"password\": \"yuvraj\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Media",
+			"item": [
+				{
+					"name": "Get All Media by user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/media/67a98761af32c99fcec960a3/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"media",
+								"67a98761af32c99fcec960a3",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Media",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "media",
+									"type": "file",
+									"src": "/C:/Users/websu/Desktop/image (6).png"
+								},
+								{
+									"key": "fileName",
+									"value": "Testing 1",
+									"type": "text"
+								},
+								{
+									"key": "userId",
+									"value": "67a98761af32c99fcec960a3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/media/upload",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"media",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Media by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/media/delete/67a98db439cb267a3de16e8c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"media",
+								"delete",
+								"67a98db439cb267a3de16e8c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearer_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"key": "bearer_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2E5ODc2MWFmMzJjOTlmY2VjOTYwYTMiLCJpYXQiOjE3MzkxNzMwMzMsImV4cCI6MTczOTc3NzgzM30.aYsdguHK6ji4uHRP-6dAiVAQhvNOHkR75z1dRsTY9HE",
+			"type": "string"
+		}
+	]
+}
